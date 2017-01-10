@@ -1,0 +1,7 @@
+<div class="alert alert-{{alert.type}} " ng-show="alert.show"
+  ng-class="{'alert-hidden': !alert.hasBeenShown}" ng-cloak>
+  <button aria-label="Close" ng-click="alert.show=false" class="close" type="button">
+      <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>{{alert.title}}</strong> {{alert.message || 'Oh... how are you seeing this?'}}
+</div>

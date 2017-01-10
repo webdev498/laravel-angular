@@ -1,0 +1,41 @@
+        <div class="modal-content" ng-controller="UserAuthController as userCtrl">
+            <div class="modal-header">
+                <button aria-label="Close" ng-click="userCtrl.cancel()" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Login Form</h4>
+            </div>
+            <div class="modal-body">
+                <h3 class="panel-heading">Please sign in</h3>
+                <div ng-include="'views/_alert.html'"></div>
+
+                <form id="loginForm" method="POST">
+                    <div class="form-group">
+                        <label class="control-label" for="email">Email Address</label>
+                        <input class="form-control" name="email" ng-model=userCtrl.email placeholder="email" required="" title="Please enter your email" type="text" value="">
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="password">Password</label>
+                        <input class="form-control" name="password" ng-model=userCtrl.password placeholder="password" required="" title="Please enter your password" type="password" value="">
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="alert alert-error hide" id="loginErrorMsg">Wrong username or password</div>
+                    <div class="checkbox">
+                        <label>
+                            <input id="remember" name="remember" type="checkbox">
+                            Remember login
+                        </label>
+                        <p class="help-block"></p>
+                    </div>
+                  <div class="form-group">
+                    <a href="{{userCtrl.login.fb}}">
+                    <i class="fa fa-facebook-square"></i> Sign in with Facebook
+                    </a>
+                  </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success btn" name="submit" ng-click="userCtrl.signin()" type="submit" value="login">Login</button>
+            </div>
+        </div>

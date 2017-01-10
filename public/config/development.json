@@ -1,0 +1,10 @@
+{
+	"url": {
+		"BASE": "http://laravel5-ng.dev",
+		"BASE_API": "http://laravel5-ng.dev/v1/api"
+	},
+	"logLevel": {
+		"LEVEL": "debug",
+		"DEBUG": true,
+	}
+}

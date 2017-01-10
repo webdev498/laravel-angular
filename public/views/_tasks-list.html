@@ -1,0 +1,54 @@
+<!-- hide these tasks if the loading variable is true -->
+<div ng-hide="taskCtrl.loading">
+    <!-- Create search box -->
+    <div ng-include="'views/_tasks-create.html'"></div>
+    <table class="table-hover center">
+        <!-- Item list -->
+        <tr ng-repeat="task in taskCtrl.tasks"style="margin: 10px;padding: 5px">
+            <td class="col-fixed-600">
+                <!-- Remove Button -->
+                <button class="close btn-xs" ng-click="taskCtrl.deleteTask(task.id)" type="button">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+                <!-- Check Button -->
+                <div class="vcenter" style="padding:1px">
+                    <h4 align="center">
+                        <div class="label" ng-click="taskCtrl.completeTask(task)" title="Done" type="button">
+                            <span class="glyphicon btn-lg" ng-class="task.status? 'glyphicon-check' : 'glyphicon-unchecked'"></span>
+                        </div>
+                    </h4>
+                </div>
+                <!-- Task Title -->
+                <div class="vcenter col-fixed-340" ng-controller="TaskFormController as taskFormCtrl">
+                    <h5 href="#" ng-class="{mouse:mouse}" ng-mouseenter="mouse = true" ng-mouseleave="mouse = false"
+                    data-toggle="collapse" data-target="#task{{task.id}}">
+                      {{ task.title | blurb:80 }}
+                    </h5>
+                </div>
+                  <!-- Priority Tag -->
+                  <div class="col-md-1 vcenter">
+                      <h4 ng-switch on="task.priority.id">
+                          <span class="label label-{{taskCtrl.severitylevels[task.priority.name]}}">{{  task.priority.name | acronym}}</span>
+                      </h4>
+                  </div>
+                  <!-- Edit Icon -->
+                  <div align="right" class="col-md-1 vcenter" title="Edit" type="button"
+                   ng-class="{mouse:mouse}" ng-mouseenter="mouse = true" ng-mouseleave="mouse = false"
+                  ng-click="taskFormCtrl.open(task.id)" ng-controller="TaskFormController as taskFormCtrl">
+                      <span class="glyphicon glyphicon-pencil"></span>
+                  </div>
+                <div>
+            <!-- More Info Pad -->
+            <div id="task{{task.id}}" class="collapse">
+                <div style="font-size:14px; font-color:orange ">
+                    <p>{{ task.notes }}</p>
+                    <p align="right" style="padding:3px">
+                        <b ng-repeat="tag in task.tags">
+                            <a href="#">#{{ tag.name }}</a>
+                        </b>
+                    </p>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

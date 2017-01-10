@@ -1,0 +1,59 @@
+/* Large desktop */
+@media (min-width: 1200px) {
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+}
+
+.label {
+    margin-left: 5px;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+    min-height: 0 !important;
+}
+.center {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
+}
+.mouse {
+    cursor: pointer;
+}
+h5 {
+    word-wrap: break-word;
+}
+.col-fixed-340 {
+    width: 340px;
+}
+.col-fixed-600 {
+    width: 600px;
+}
+input, select, textarea{
+  background-color: transparent !important;
+  border-bottom: 3px;
+  border-color: white !important;
+  color: white !important;
+  /*outline: none;*/
+  /*-webkit-box-shadow: none;*/
+  /*-moz-box-shadow: none;*/
+  /*box-shadow: none;*/
+  /*width:5px;*/
+  color:transparent;
+  /*cursor:default;*/
+}
+.map-canvas { height: 400px; }
+#map {
+       height: 100%;
+     }

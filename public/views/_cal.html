@@ -1,0 +1,18 @@
+<div class="container">
+<div  ng-controller="CalController as calCtrl" class="col-md-8  col-md-offset-2">
+  <div class="span">
+
+<!-- PAGE TITLE =============================================== -->
+<div class="page-header">
+    <h4 class="panel-title"><i class="glyphicon glyphicon-calendar"></i> Cal Application</h4>
+</div>
+
+<!-- LOADING ICON =============================================== -->
+<!-- show loading icon if the loading variable is set to true -->
+<p class="text-center" ng-show="calCtrl.loading"><span class="fa fa-refresh fa-5x fa-spin"></span></p>
+
+<div ui-calendar ng-model="eventSources"></div>
+
+  </div>
+</div>
+</div>

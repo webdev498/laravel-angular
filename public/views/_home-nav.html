@@ -1,0 +1,46 @@
+<!-- NAVIGATION -->
+<nav class="navbar navbar-default" role="navigation"  ng-cloak>
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+
+  <div class="navbar-collapse collapse" ng-controller="UserAuthController as userCtrl" ng-init="userCtrl.userLoggedIn()">
+    <div ng-show="userCtrl.loading">
+       <i class="fa fa-spinner fa-spin"></i>
+    </div>
+    <div ng-hide="userCtrl.loading" ng-cloak>
+    <ul class="nav navbar-nav">
+      <li><a ui-sref="home"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+      <li><a ui-sref="tasks"><i class="glyphicon glyphicon-th-list" ng-cloak></i> Tasks <span class="badge" ng-show="isLoggedIn"  ng-cloak> {{myTasks.count}}</span></a></li>
+      <li><a ui-sref="map"><i class="glyphicon glyphicon-globe"></i> Map</a></li>
+      <li><a ui-sref="cal"><i class="glyphicon glyphicon-calendar"></i> Cal</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right nav-pills" ng-show="isLoggedIn"  ng-cloak>
+      <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href role="button" aria-haspopup="true" aria-expanded="false">
+          <i class="glyphicon glyphicon-user" ng-show="!userCtrl.me.avatar" ng-cloak></i>
+          <img ng-src="/img/avatars/{{userCtrl.me.avatar}}" height="32px" width="32px" class="img-circle">
+          {{userCtrl.me.name}}
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a ng-click="userCtrl.logout()" href><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right nav-pills" ng-hide="isLoggedIn"  ng-cloak>
+      <li><a ui-sref="register"><i class="glyphicon glyphicon-plus"></i> Register</a></li>
+      <li>
+        <a href role="button" aria-haspopup="true" aria-expanded="false"  ng-click="userCtrl.open()">
+          <i class="glyphicon glyphicon-user"></i><span class="caret"></span>
+        </a>
+      </li>
+    </ul>
+    <div>
+  </div>
+</nav>

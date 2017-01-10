@@ -1,0 +1,20 @@
+<div class="container">
+<div  ng-controller="MapController as mapCtrl" class="col-md-8  col-md-offset-2">
+  <div class="span">
+
+<!-- PAGE TITLE =============================================== -->
+<div class="page-header">
+    <h4 class="panel-title"><i class="glyphicon glyphicon-globe"></i> Map Application</h4>
+</div>
+
+<!-- LOADING ICON =============================================== -->
+<!-- show loading icon if the loading variable is set to true -->
+<p class="text-center" ng-show="mapCtrl.loading"><span class="fa fa-refresh fa-5x fa-spin"></span></p>
+
+<section id="map">
+  <div ui-map="mapCtrl.myMap" ui-options="mapCtrl.mapOptions" class="map-canvas"></div>
+</section>
+
+  </div>
+</div>
+</div>

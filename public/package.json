@@ -1,0 +1,21 @@
+{
+	"name": "angular.dev",
+	"version": "1.0.0",
+	"description": "A starter project for AngularJS",
+	"homepage": "https://github.com/kmassada/angular-app.git",
+	"main": "index.js",
+	"scripts": {
+		"postinstall": "bower install",
+
+		"prestart": "npm install",
+		"start": "http-server -a localhost -p 8000 -c-1",
+
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Kenneth Massada",
+	"license": "ISC",
+	"devDependencies": {
+		"bower": "^1.5.2",
+		"http-server": "^0.8.0"
+	}
+}

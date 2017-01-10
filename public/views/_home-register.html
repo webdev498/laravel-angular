@@ -1,0 +1,32 @@
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-6  col-md-offset-3">
+          <h3 class="panel-heading">Please Register</h3>
+            <div class="well">
+                <form id="loginForm" method="POST" ng-controller="UserAuthController as userCtrl">
+                  <div class="form-group">
+                      <label for="name" class="control-label">Name</label>
+                      <input type="text" class="form-control" name="name" value="" required="" title="Please enter your name" placeholder="name" ng-model=userCtrl.name>
+                      <span class="help-block"></span>
+                  </div>
+                    <div class="form-group">
+                        <label for="email" class="control-label">Email Address</label>
+                        <input type="text" class="form-control" name="email" value="" required="" title="Please enter your email" placeholder="email" ng-model=userCtrl.email>
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="control-label">Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="password" value="" required="" title="Please enter your password" ng-model=userCtrl.password>
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password_confirmation" class="control-label">Repeat Password</label>
+                        <input type="password" class="form-control" name="password_confirmation" placeholder="password" value="" required="" title="Please enter your password" ng-model=userCtrl.password_confirmation>
+                        <span class="help-block"></span>
+                    </div>
+                    <button type="submit" value="login" name="submit" class="btn btn-success btn-block" ng-click="userCtrl.register()">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

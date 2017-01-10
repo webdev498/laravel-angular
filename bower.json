@@ -1,0 +1,40 @@
+{
+  "name": "angular.dev",
+  "version": "0.0.0",
+  "authors": [
+    "Kenneth Massada"
+  ],
+  "description": "A starter project for AngularJS",
+  "repository": "https://github.com/kmassada/angular-app.git",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "angular": "~1.4.5",
+    "angular-bootstrap": "~0.13.4",
+    "angular-loader": "~1.4.5",
+    "angular-loading-bar": "~0.8.0",
+    "angular-messages": "~1.4.6",
+    "angular-mocks": "~1.4.5",
+    "angular-route": "~1.4.5",
+    "angular-ui-router": "~0.2.15",
+    "html5-boilerplate": "~5.2.0",
+    "angular-ui-sortable": "~0.13.4",
+    "jquery-ui": "~1.11.4",
+    "angular-ui-map": "~0.5.0",
+    "angular-ui-event": "~1.0.0",
+    "angular-ui-calendar": "~1.0.1",
+    "font-awesome": "~4.4.0"
+  },
+  "devDependencies": {
+    "font-awesome": "~4.4.0"
+  }
+}

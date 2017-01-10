@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Pathfinder App</title>
+
+  <!-- Facebook Values -->
+  <meta property="og:url"                content="" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="A journey through coding" />
+  <meta property="og:description"        content="This app was created as a survey to...." />
+  <meta property="og:image"              content="/public/img/banners/banner.png" />
+
+  <!-- Analytics -->
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+   <!-- bower:css -->
+   <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="lib/bootstrap/dist/css/superhero.min.css">
+   <link rel="stylesheet" href="lib/angular-loading-bar/build/loading-bar.css">
+   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
+   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
+   <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+   <link rel="stylesheet" href="lib/fullcalendar/dist/fullcalendar.css">
+   <!-- endinject -->
+
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/app.css">
+  <!-- endinject -->
+
+  <!-- head:js -->
+  <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <!-- endinject -->
+  </head>
+  <body>
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <!-- declare our angular app and controller -->
+  <body ng-app="mainApp">
+  <div ng-include="'views/_home-nav.html'"></div>
+
+  <div ng-hide="alert.scope==='local'">
+    <div ng-include="'views/_alert.html'"></div>
+  </div>
+
+    <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+    <div ui-view></div>
+
+
+  <!-- bower:js -->
+  <script src="lib/jquery/dist/jquery.js"></script>
+  <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="lib/angular-loader/angular-loader.js"></script>
+  <script src="lib/angular-loading-bar/build/loading-bar.js"></script>
+  <script src="lib/angular-messages/angular-messages.js"></script>
+  <script src="lib/angular-mocks/angular-mocks.js"></script>
+  <script src="lib/angular-route/angular-route.js"></script>
+  <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="lib/jquery-ui/jquery-ui.js"></script>
+  <script src="lib/angular-ui-utils/ui-utils.js"></script>
+  <script src="lib/angular-ui-event/dist/event.js"></script>
+  <script src="lib/moment/moment.js"></script>
+  <script src="lib/angular-ui-sortable/sortable.js"></script>
+  <script src="lib/angular-ui-map/ui-map.js"></script>
+  <script src="lib/fullcalendar/dist/fullcalendar.js"></script>
+  <script src="lib/angular-ui-calendar/src/calendar.js"></script>
+  <!-- endinject -->
+
+  <!-- inject:js -->
+  <script src="js/app.js"></script>
+  <script src="js/app.setup.js"></script>
+  <script src="js/app.run.js"></script>
+  <script src="js/app.routes.js"></script>
+  <script src="js/app.log.js"></script>
+  <script src="js/app.env.js"></script>
+  <script src="js/userModule.js"></script>
+  <script src="js/taskModule.js"></script>
+  <script src="js/mapModule.js"></script>
+  <script src="js/calModule.js"></script>
+  <script src="js/services/userService.js"></script>
+  <script src="js/services/taskService.js"></script>
+  <script src="js/services/loginModalService.js"></script>
+  <script src="js/services/formValidationService.js"></script>
+  <script src="js/services/authService.js"></script>
+  <script src="js/services/appStorageService.js"></script>
+  <script src="js/services/alertService.js"></script>
+  <script src="js/providers/authInterceptor.js"></script>
+  <script src="js/directives/taskFormField.js"></script>
+  <script src="js/directives/taskCreateField.js"></script>
+  <script src="js/directives/keyCodesField.js"></script>
+  <script src="js/directives/keyCodes.js"></script>
+  <script src="js/directives/blurbFilter.js"></script>
+  <script src="js/directives/acronymFilter.js"></script>
+  <script src="js/controllers/userAuthController.js"></script>
+  <script src="js/controllers/taskFormController.js"></script>
+  <script src="js/controllers/taskController.js"></script>
+  <script src="js/controllers/mapController.js"></script>
+  <script src="js/controllers/calController.js"></script>
+  <script src="js/controllers/appController.js"></script>
+  <!-- endinject -->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=onGoogleReady&v=3.exp&key=AIzaSyD9nMFnHofSPO-h3k5OxBEa00mD2IzDP1E&libraries=places"></script>
+</body>
+</html>

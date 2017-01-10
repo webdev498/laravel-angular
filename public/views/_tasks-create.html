@@ -1,0 +1,13 @@
+<form name='taskCreateInputForm' ng-controller="TaskFormController as taskFormCtrl">
+    <input
+      ng-model="taskFormCtrl.createInput" code="13"
+      type="text"
+      key-codes-field="taskFormCtrl.submitOnEnter()"
+      class="form-control input-lg"
+      style="display:table-cell; width:100% !important"
+      placeholder="Create Task">
+    </input>
+<form/>
+<tt>
+  createInput: {{createInput}}
+<tt>

@@ -1,0 +1,48 @@
+<form class="form" name='taskForm' ng-submit="saveOrUpdate(taskForm)" novalidate>
+    <div class="modal-content">
+        <div class="modal-header">
+            <button aria-label="Close" class="close" data-dismiss="modal" ng-click="cancel()" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Edit Task</h4>
+        </div>
+        <div class="modal-body">
+            <div ng-include="'views/_alert.html'"></div>
+
+            <div class="span">
+
+                <!-- ng-submit will disable the default form action and use our function -->
+
+                <!-- Title -->
+                <task-form-field element='input' field-placeholder="Title" field="taskForm.title" label="title" live='false' ng-model="taskData.title" required='true'></task-form-field>
+
+                <!-- Notes -->
+                <task-form-field element='textarea' field-placeholder="please add task details" field="taskForm.notes" label="notes" live='false' ng-model="taskData.notes" required='false'></task-form-field>
+
+                <!-- Priority -->
+                <task-form-field element='select' field="taskForm.priority_id" label="priority" live='false' ng-model="taskData.priority_id" options="taskPriorityOptions"></task-form-field>
+
+                <!-- Tags -->
+                <task-form-field element='multipleselect' field="taskForm.multipleSelect" label="tags" live='false' ng-model="taskData.tag_list" options="taskTagOptions"></task-form-field>
+
+                <tt>TaskData =
+                    {{taskData}}</tt><br/>
+                <tt>Form =
+                    {{userType}}</tt><br>
+                <tt>taskForm.$valid =
+                    {{taskForm.$valid}}</tt><br>
+                <tt>taskForm.$error.required =
+                    {{!!taskForm.$error.required}}</tt><br>
+
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <!-- SUBMIT BUTTON -->
+            <div class="form-group text-right">
+                <button class="btn btn-success btn-primary btn-lg" type="submit">{{ taskId ? 'Update' : 'Save' }}</button>
+                <button class="btn btn-danger btn-primary btn-lg" ng-show="taskId" ng-click="delete()" type="button">Delete</button>
+            </div>
+        </div>
+    </div>
+</form>

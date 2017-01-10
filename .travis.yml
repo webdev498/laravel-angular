@@ -1,0 +1,67 @@
+# Required to run project under the correct environment.
+language: php
+
+# Versions of PHP
+php:
+  - 5.5.9
+  - 5.5
+  - 5.6
+  - hhvm
+
+# environment variables
+env:
+  global:
+    - DB=mysql
+    - secure: ALD4vkzbX63O7ZYsnqyhqLiAJgORVwXDLqlVwJ6celMpJjAqw3vVSUT/EZchd5W1a+exFw8+DdQSQYPi+/EI+x9ynwSzkYtzpA3hWL+IIY2Tfeog3TdZbmzu8EcEkIMGSSM50XRUSCP7hYtQsIGmHaMvMIo2zTYLwXHD76HwRPo9CO0D+Ty8FL8R3KvpFpiKFBPcXAoxF0Z8R4jXuLqUVHRtBJtkp1h8JJ0yHwzlaAo0vvRbEyDIF3jY6mGc2oVYqZ1/pgCuGi5ku4B8kNNkg8ERf2xQVGmfnWpUeG1HHo6HtdPR/uJqfMgn533hAKvVL6kp19GLRCNly7qDBr8hrUQW/cOPGaJXnixXep+0GlgRb/hRdBsZN8sCJeM9IizS0P1WCiCZD7a+dr9wEgtJC3BWxNV9mSJGFPkRMa6JM/ElMofaVilSJyLAGwidJ79gje+ZcudWIQuH6evw5ZeF3KTkldOLzoJJljrm5vdFa/xOexD/jugNj6+00AyBQN0UXbUQcblZp6y+iHMrtZU2ZQKpLb6rx7lMt4xW5kUB9V0YD687T7PPIy1e+vVyoC8nwDjxvw+0HLIqtsmquh5K3u+1mUO1EIR6sruExHT7KCoKefMmnbKj983dxA8UMcpMCtGHS4JsoHJrAth85u6utfWppAe5DqiG9X72j/q1kSY=
+
+# No Sudo
+sudo: false
+
+## Commands
+
+before_install:
+  - composer self-update
+  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS test;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database test;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database IF NOT EXISTS test;'; fi"
+  - rvm 1.9.3 do gem install net-ssh -v 2.9.2
+
+install:
+  - travis_retry composer install --no-interaction --prefer-source
+
+before_script:
+  - cp .env.test .env
+  - sed -i 's/seed/$SEED_SECURE/g' .env
+  - npm install
+  - npm install -g bower phantomjs
+  - bower install
+  - bundle install
+
+script:
+  - yes | php artisan migrate
+  - yes | php artisan migrate:refresh --seed
+  - vendor/bin/phpunit
+  - npm test
+  - bundle install
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+after_success:
+  # Capistano WIP
+  # - "openssl aes-256-cbc -k $DEPLOY_KEY -in config/enc/deploy_id_rsa_enc_travis -d -a -out config/enc/deploy_id_rsa"
+  # - "[[ $TRAVIS_BRANCH = 'master' ]] && bundle exec cap production deploy"
+
+matrix:
+  allow_failures:
+    - php: 5.6
+    - php: hhvm
+  # driver for PostgreSQL currently unsupported by HHVM, requires 3rd party dependency
+  exclude:
+  - php: hhvm
+    env: DB=pgsql
+  fast_finish: true
+
+# Customize when the notification emails are sent.
+notifications:
+    on_success: never
+    on_failure: always

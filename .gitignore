@@ -1,0 +1,25 @@
+# vendor packages
+/node_modules
+
+/vendor
+public/lib
+public/fonts
+
+# env var
+.env*
+!.env.example
+!.env.test
+.DS_Store
+
+# config and build
+config/enc
+gulp/build
+public/config/production.json
+
+# homestead-files
+Homestead
+Homestead.json
+Homestead.yaml
+
+# data
+public/img/avatars/

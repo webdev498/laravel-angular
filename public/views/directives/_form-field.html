@@ -1,0 +1,26 @@
+<div class="form-group" ng-switch='element' ng-form="{{field}}" ng-class="{ 'has-error': {{field}}.$dirty && {{field}}.$invalid }">
+  <input  ng-switch-when='input' ng-model="$parent.ngModel"
+    class="form-control" placeholder="{{fieldPlaceholder}}{{required?'':'*'}}*"
+     ng-change='update()' ng-blur='blurUpdate()' ng-required="{{required?'true':'false'}}">
+
+  <textarea ng-switch-when='textarea' class="form-control input-lg" ng-model="$parent.ngModel"
+      placeholder="{{fieldPlaceholder}}{{required?'':'*'}}*"
+     ng-change='update()' ng-blur='blurUpdate()' ></textarea>
+
+  <select ng-switch-when='select' ng-model="$parent.ngModel" ng-options="option.id as option.name for option in options" type="text"
+    class="form-control input-sm" ng-change='update()' ng-blur='blurUpdate()' ng-required="{{required?'true':'false'}}"></select>
+
+  <select ng-switch-when='multipleselect' ng-model="$parent.ngModel" ng-options="option.id as option.name for option in options"
+     class="form-control input-sm" ng-change='update()' ng-blur='blurUpdate()' ng-required="{{required?'true':'false'}}" multiple>
+  </select>
+
+  <span ng-if='required==false' span class='input-group-btn'>
+      <button class='btn' ng-click='remove(field)'><span class='glyphicon glyphicon-remove-circle'></span></button>
+  </span>
+
+  <div class="has-error" ng-show='{{field}}.$dirty && {{field}}.$invalid || {{field}}.$pristine && {{field}}.$invalid ' ng-messages='field.$error'>
+    <p class='control-label' ng-messages='required'>{{label}} is required</p>
+    <p class='control-label' ng-repeat='(k,v) in types' ng-message='{{k}}'>field {{v}}</p>
+  </div>
+
+</div>
